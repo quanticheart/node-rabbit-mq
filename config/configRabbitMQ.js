@@ -1,6 +1,7 @@
 require("dotenv").config()
 const amqplib = require('amqplib');
 const amqpUrl = process.env.AMQP_URL;
+const constants = require("./rabbitMQConstants")
 
 // http://localhost:15672/#/
 // guest::guest
@@ -37,16 +38,16 @@ async function consumer(queue, callback) {
     });
 
     await channel.assertQueue(queue, {durable: true});
-    await channel.consume(queue, async (msg) => {
+    await channel.consume(queue, async (data) => {
             console.log('processing messages');
-            await callback(msg);
-            await channel.ack(msg);
+            await callback(data.content.toString());
+            await channel.ack(data);
         },
         {
             noAck: false,
             consumerTag: 'email_consumer'
         });
-    console.log(" [*] Waiting for messages. To exit press CTRL+C");
+    console.log(" [*] Waiting for messages in " + queue + ". To exit press CTRL+C");
 }
 
-module.exports = { publisher, consumer }
+module.exports = {publisher, consumer, constants}

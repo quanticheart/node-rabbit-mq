@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "91cbd6a6-5bab-487c-8264-0a040cbea11e",
+		"name": "rabbitMQ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5310700"
+	},
+	"item": [
+		{
+			"name": "send email to queue",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "token",
+						"value": "{{user-token}}",
+						"type": "text"
+					},
+					{
+						"key": "api_token",
+						"value": "{{api-token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/sendEmail",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"sendEmail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "send push to queue",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "token",
+						"value": "{{user-token}}",
+						"type": "text"
+					},
+					{
+						"key": "api_token",
+						"value": "{{api-token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/sendPush",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"sendPush"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "send push to queue",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "token",
+						"value": "{{user-token}}",
+						"type": "text"
+					},
+					{
+						"key": "api_token",
+						"value": "{{api-token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/sendSms",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"sendSms"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
